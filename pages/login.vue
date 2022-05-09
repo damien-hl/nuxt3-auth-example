@@ -3,10 +3,12 @@ definePageMeta({
     layout: 'auth'
 })
 
+const loading = useState('spinner', () => false)
 const user = useState('user', () => null)
 
 async function onLoginClick() {
     try {
+        loading.value = true
         user.value = await $fetch('/api/auth/login', {
             method: 'POST',
             body: { email: "admin@gmail.com", password: "password" }
@@ -14,16 +16,21 @@ async function onLoginClick() {
         console.log(user.value);    
     } catch (error) {
         console.error(error);
+    } finally {
+        loading.value = false
     }
 }
 
 async function onLogoutClick() {
     try {
+        loading.value = true
         user.value = await $fetch('/api/auth/logout', {
             method: 'POST',
         })    
     } catch (error) {
         console.error(error);
+    } finally {
+        loading.value = false
     }
 }
 </script>
