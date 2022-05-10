@@ -4,22 +4,6 @@ definePageMeta({
 })
 
 const user = useState('user', () => null)
-
-async function onLoginClick() {
-    try {
-        user.value = await $fetch('/api/auth/login', {
-            method: 'POST',
-            body: {
-                email: 'admin@gmail.com',
-                password: 'password',
-            }
-        })
-        
-        await navigateTo('/private')
-    } catch (error) {
-        console.error(error);        
-    }
-}
 </script>
 
 <template>
@@ -30,6 +14,5 @@ async function onLoginClick() {
         <code class="mb-3 block text-light-100">            
             <pre>utilisateur: {{ JSON.stringify(user, null, 2) }}</pre>
         </code>
-        <button @click="onLoginClick" class="mb-3 py-1 px-2 rounded bg-light-100">Se connecter</button>
-   </div>
+    </div>
 </template>
