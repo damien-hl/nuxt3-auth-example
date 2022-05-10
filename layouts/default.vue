@@ -7,8 +7,14 @@ user.value = data
 </script>
 
 <template>
-    <div class="bg-slate-900">
-        <main>
+    <div class="min-h-screen flex flex-col bg-slate-900">
+        <header class="p-3 mx-auto w-full max-w-4xl ">
+            <nav class="flex gap-3">
+                <NuxtLink to="/" class="underline text-gray-400 hover:text-gray-200">Accueil</NuxtLink>
+                <NuxtLink to="/login" class="ml-auto underline text-gray-400 hover:text-gray-200">Connexion</NuxtLink>
+            </nav>
+        </header>
+        <main class="p-3 mx-auto w-full max-w-4xl">
             <slot />
         </main>
     </div>
