@@ -51,7 +51,7 @@ async function onLogoutClick() {
     <div>
         <div v-if="user">
             <h1 class="mb-3 text-lg font-bold text-light-100">Connecté en tant que {{ user.email }}</h1>
-            <button @click="onLogoutClick" class="py-1 px-2 rounded bg-light-100 text-dark-100">Se déconnecter</button>
+            <button @click="onLogoutClick" :disabled="loading" class="py-1 px-2 rounded bg-light-100 text-dark-100">Se déconnecter</button>
         </div>
         <div v-else class="mx-auto w-full max-w-xs">
             <h1 class="mb-3 text-lg font-bold text-light-100">Connexion</h1>
@@ -67,7 +67,7 @@ async function onLogoutClick() {
                 <label for="remember-me" class="ml-1 text-light-100">Se souvenir de moi</label>
             </div>
             <div class="mb-3">
-                <button @click="onLoginClick"
+                <button @click="onLoginClick" :disabled="loading"
                     class="py-1 px-2 w-full rounded bg-light-100 text-dark-100 hover:bg-light-700 transition-colors">Se
                     connecter</button>
             </div>
