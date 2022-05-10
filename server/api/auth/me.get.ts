@@ -1,7 +1,5 @@
-import { getSession } from "~~/server/utils/session";
-
 export default defineEventHandler(async (event) => {
-    const userWithPassword = await getSession(event); 
+    const userWithPassword = event.context.user; 
 
     if (!userWithPassword) {
         return null

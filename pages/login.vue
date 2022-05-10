@@ -6,7 +6,10 @@ definePageMeta({
 const user = useState('user', () => null)
 
 const form = reactive({
-    data: {},
+    data: {
+        email: '',
+        password: ''
+    },
     pending: false,
 })
 

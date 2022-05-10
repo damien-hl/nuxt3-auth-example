@@ -2,7 +2,8 @@
 useHead({
   htmlAttrs: {
     lang: 'fr'
-  }
+  },
+  title: "Exemple d'authentification",
 })
 </script>
 
