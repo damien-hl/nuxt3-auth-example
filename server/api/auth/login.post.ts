@@ -23,7 +23,11 @@ export default defineEventHandler(async (event) => {
         })
     }
 
-    setCookie(event, '__session', user.id, {
+    const session = Buffer.from(JSON.stringify({
+        userId: user.id,
+    }), 'utf-8').toString('base64');    
+
+    setCookie(event, '__session', session, {
         httpOnly: true,
         path: '/',
         sameSite: 'strict',
