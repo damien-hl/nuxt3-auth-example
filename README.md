@@ -2,6 +2,8 @@
 
 Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
 
+![Cover](./cover.jpg)
+
 ## Setup
 
 Make sure to install the dependencies:
