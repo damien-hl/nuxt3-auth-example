@@ -1,19 +1,11 @@
-<script lang="ts" setup>
-const user = useState('user', () => null)
-
-const { data } = await useAsyncData('me', () => $fetch('/api/auth/me', { headers: useRequestHeaders(["cookie"]) }))
-
-user.value = data
-</script>
-
 <template>
     <div class="min-h-screen flex flex-col bg-slate-900">
         <header class="p-3 mx-auto w-full max-w-4xl ">
             <nav class="flex gap-3">
                 <NuxtLink to="/" class="underline text-gray-400 hover:text-gray-200">Accueil</NuxtLink>
-                <NuxtLink v-if="user" to="/account" class="underline text-gray-400 hover:text-gray-200">Mon compte</NuxtLink>
-                <NuxtLink to="/login" class="ml-auto underline text-gray-400 hover:text-gray-200">Connexion</NuxtLink>
-            </nav>
+                <NuxtLink to="/guest" class="underline text-gray-400 hover:text-gray-200">Public</NuxtLink>
+                <NuxtLink to="/private" class="underline text-gray-400 hover:text-gray-200">Privé</NuxtLink>
+             </nav>
         </header>
         <main class="p-3 mx-auto w-full max-w-4xl">
             <slot />

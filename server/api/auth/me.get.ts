@@ -1,11 +1,13 @@
-export default defineEventHandler(async (event) => {
-    const user = event.context.user;
+import { getSession } from "~~/server/utils/session";
 
-    if (!user) {
-        return createError({
-            statusCode: 401,
-        });
+export default defineEventHandler(async (event) => {
+    const userWithPassword = await getSession(event); 
+
+    if (!userWithPassword) {
+        return null
     }
 
-    return user;
+    const { password: _password, ...userWithoutPassword } = userWithPassword
+
+    return userWithoutPassword;
 })
