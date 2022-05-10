@@ -4,12 +4,12 @@ const users = [
         email: 'admin@gmail.com',
         password: 'password',
     }
-]
+];
 
 export async function getUserByEmail(email: string) {
-    return users.find(user => user.email === email)
+    return users.find(user => user.email === email);
 }
 
 export async function getUserById(id: string) {
-    return users.find(user => user.id === id)
+    return users.find(user => user.id === id);
 }

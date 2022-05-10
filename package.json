@@ -7,7 +7,11 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
+    "@types/cookie-signature": "^1.0.4",
     "nuxt": "3.0.0-rc.2",
     "nuxt-windicss": "^2.3.1"
+  },
+  "dependencies": {
+    "cookie-signature": "^1.2.0"
   }
 }

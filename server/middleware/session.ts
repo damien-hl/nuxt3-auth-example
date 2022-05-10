@@ -1,16 +1,20 @@
-import { deserialize } from "~~/server/utils/session";
+import { deserialize, unsign } from "~~/server/utils/session";
 import { getUserById } from "~~/server/models/user";
 
 export default defineEventHandler(async (event) => {
-    let user;
-
     const cookie = useCookies(event)['__session'];
 
-    if (cookie) {
-        const session = deserialize(cookie);
+    if (!cookie) { return }
 
-        user = await getUserById(session.userId);
-    }
+    const config = useRuntimeConfig();
 
-    event.context.user = user
+    const unsignedSession = unsign(cookie, config.secret);
+
+    if (!unsignedSession) { return }
+
+    const session = deserialize(unsignedSession);
+
+    const user = await getUserById(session.userId);
+
+    event.context.user = user;
 })

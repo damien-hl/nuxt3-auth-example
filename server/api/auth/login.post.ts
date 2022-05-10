@@ -1,5 +1,5 @@
 import { getUserByEmail } from "~~/server/models/user";
-import { serialize } from "~~/server/utils/session";
+import { sign, serialize } from "~~/server/utils/session";
 
 
 export default defineEventHandler(async (event) => {
@@ -15,21 +15,24 @@ export default defineEventHandler(async (event) => {
         return createError({
             statusCode: 400,
             message: "L'adresse email et le mot de passe sont requis",
-        })
+        });
     }
 
-    const user = await getUserByEmail(email)
+    const user = await getUserByEmail(email);
 
     if (!user || user.password !== password) {
         return createError({
             statusCode: 401,
             message: "L'adresse email ou le mot de passe est incorrect",
-        })
+        });
     }
 
-    const session = serialize({ userId: user.id })
+    const config = useRuntimeConfig();
 
-    setCookie(event, '__session', session, {
+    const session = serialize({ userId: user.id });
+    const signedSession = sign(session, config.secret);
+
+    setCookie(event, '__session', signedSession, {
         httpOnly: true,
         path: '/',
         sameSite: 'strict',
@@ -37,5 +40,5 @@ export default defineEventHandler(async (event) => {
         expires: rememberMe ? new Date(Date.now() + 1000 * 60 * 60 * 24 * 7) : new Date(Date.now() + 1000 * 60 * 60 * 24),
     });
 
-    return user
+    return user;
 })

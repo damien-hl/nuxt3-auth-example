@@ -4,8 +4,8 @@ export default defineEventHandler(async (event) => {
     if (!user) {
         return createError({
             statusCode: 401,
-        })
+        });
     }
 
-    return user
+    return user;
 })

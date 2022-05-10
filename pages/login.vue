@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-const loading = useState('spinner', () => false)
-const user = useState('user', () => null)
+const loading = useState('spinner', () => false);
+const user = useState('user', () => null);
 
 const form = reactive({
     data: {
@@ -11,38 +11,38 @@ const form = reactive({
     errors: {
         message: ''
     }
-})
+});
 
 async function onLoginClick() {
     try {
-        loading.value = true
-        form.errors.message = ''
+        loading.value = true;
+        form.errors.message = '';
         
         user.value = await $fetch('/api/auth/login', {
             method: 'POST',
             body: { email: form.data.email, password: form.data.password, rememberMe: form.data.rememberMe }
-        })
+        });
     } catch (error) {
         if (error.data.message) {
-            form.errors.message = error.data.message
+            form.errors.message = error.data.message;
         }
 
         console.error(error);
     } finally {
-        loading.value = false
+        loading.value = false;
     }
 }
 
 async function onLogoutClick() {
     try {
-        loading.value = true
+        loading.value = true;
         user.value = await $fetch('/api/auth/logout', {
             method: 'POST',
-        })
+        });
     } catch (error) {
         console.error(error);
     } finally {
-        loading.value = false
+        loading.value = false;
     }
 }
 </script>
