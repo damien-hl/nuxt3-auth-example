@@ -1,4 +1,5 @@
 import { getUserByEmail } from "~~/server/models/user";
+import { serialize } from "~~/server/utils/session";
 
 
 export default defineEventHandler(async (event) => {
@@ -23,9 +24,7 @@ export default defineEventHandler(async (event) => {
         })
     }
 
-    const session = Buffer.from(JSON.stringify({
-        userId: user.id,
-    }), 'utf-8').toString('base64');    
+    const session = serialize({ userId: user.id })
 
     setCookie(event, '__session', session, {
         httpOnly: true,
