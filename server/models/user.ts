@@ -4,6 +4,12 @@ const users = [
         email: 'admin@gmail.com',
         password: 'password',
         roles: ["ADMIN"]
+    },
+    {
+        id: 'd0065700-1707-4ad9-811b-8bbed0364318',
+        email: 'user@gmail.com',
+        password: 'password',
+        roles: ["USER"]
     }
 ];
 
