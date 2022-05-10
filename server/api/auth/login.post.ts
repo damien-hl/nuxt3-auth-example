@@ -1,3 +1,6 @@
+import { getUserByEmail } from "~~/server/models/user";
+
+
 export default defineEventHandler(async (event) => {
     const body = await useBody<{ email: string, password: string }>(event);
 
@@ -12,15 +15,15 @@ export default defineEventHandler(async (event) => {
         })
     }
 
-    if (email !== "admin@gmail.com" && password !== "password") {
+    const user = await getUserByEmail(email)
+
+    if (!user || user.password !== password) {
         return createError({
             statusCode: 401,
         })
     }
 
-    const user = { email: "admin@gmail.com" }
-
-    setCookie(event, '__session', user.email, {
+    setCookie(event, '__session', user.id, {
         httpOnly: true,
         path: '/',
         sameSite: 'strict',

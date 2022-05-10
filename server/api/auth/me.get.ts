@@ -1,13 +1,21 @@
-export default defineEventHandler(async (event) => {
-    const userEmail = useCookies(event)['__session'];
+import { getUserById } from "~~/server/models/user";
 
-    if (!userEmail) {
+export default defineEventHandler(async (event) => {
+    const userId = useCookies(event)['__session'];
+
+    if (!userId) {
         return createError({
             statusCode: 401,
         })
     }
 
-    const user = { email: "admin@gmail.com" }
+    const user = await getUserById(userId);
+
+    if (!user) {
+        return createError({
+            statusCode: 401,
+        })
+    }
 
     return user
 })
