@@ -22,6 +22,8 @@ async function onLoginClick() {
             method: 'POST',
             body: { email: form.data.email, password: form.data.password, rememberMe: form.data.rememberMe }
         });
+
+        await navigateTo('/account');
     } catch (error) {
         if (error.data.message) {
             form.errors.message = error.data.message;

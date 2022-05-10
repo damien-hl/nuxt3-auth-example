@@ -11,6 +11,7 @@ user.value = data
         <header class="p-3 mx-auto w-full max-w-4xl ">
             <nav class="flex gap-3">
                 <NuxtLink to="/" class="underline text-gray-400 hover:text-gray-200">Accueil</NuxtLink>
+                <NuxtLink v-if="user" to="/account" class="underline text-gray-400 hover:text-gray-200">Mon compte</NuxtLink>
                 <NuxtLink to="/login" class="ml-auto underline text-gray-400 hover:text-gray-200">Connexion</NuxtLink>
             </nav>
         </header>
