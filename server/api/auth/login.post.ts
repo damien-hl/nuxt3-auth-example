@@ -1,4 +1,5 @@
 import { getUserByEmail } from "~~/server/models/user";
+import { verify } from "~~/server/utils/password";
 import { sign, serialize } from "~~/server/utils/session";
 
 export default defineEventHandler(async (event) => {
@@ -19,7 +20,16 @@ export default defineEventHandler(async (event) => {
 
     const userWithPassword = await getUserByEmail(email);
 
-    if (!userWithPassword || userWithPassword.password !== password) {
+    if (!userWithPassword) {
+        return createError({
+            statusCode: 401,
+            message: "L'adresse email ou le mot de passe est incorrect",
+        });
+    }
+
+    const verified = await verify(password, userWithPassword.password);
+
+    if (!verified) {
         return createError({
             statusCode: 401,
             message: "L'adresse email ou le mot de passe est incorrect",
