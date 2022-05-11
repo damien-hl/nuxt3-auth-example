@@ -13,6 +13,10 @@ const users = [
     }
 ];
 
+export async function getUsers() {
+    return users;
+}
+
 export async function getUserByEmail(email: string) {
     return users.find(user => user.email === email);
 }
