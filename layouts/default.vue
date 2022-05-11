@@ -1,18 +1,15 @@
 <script lang="ts" setup>
-const { user } = useAuth()
+const { user: currentUser, isAdmin, logout } = useAuth()
 
 const form = reactive({
     pending: false,
 })
 
-const isAdmin = computed(() => user.value && user.value.roles.includes('ADMIN'))
-
 async function onLogoutClick() {
     try {
         form.pending = true
-        user.value = await $fetch('/api/auth/logout', {
-            method: 'POST',
-        })
+        
+        await logout()
 
         await navigateTo('/')
     } catch (error) {
@@ -28,7 +25,7 @@ async function onLogoutClick() {
         <header class="p-3 mx-auto w-full max-w-4xl ">
             <nav class="flex gap-3">
                 <NuxtLink to="/" class="underline text-gray-400 hover:text-gray-200">Accueil</NuxtLink>
-                <template v-if="user">
+                <template v-if="currentUser">
                     <NuxtLink to="/private" class="underline text-gray-400 hover:text-gray-200 transition-colors">Privé
                     </NuxtLink>
                     <NuxtLink v-if="isAdmin" to="/admin"

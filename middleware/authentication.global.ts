@@ -1,11 +1,9 @@
 export default defineNuxtRouteMiddleware(async (to) => {
     if (process.server) { // Only call on initial render ?
-        const { user } = useAuth()
+        const { init } = useAuth()
         
         try {
-            user.value = await $fetch('/api/auth/me', {
-                headers: useRequestHeaders(['cookie'])
-            });
+            await init();
         } catch (error) {
             console.log(error);
         }

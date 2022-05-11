@@ -3,7 +3,7 @@ definePageMeta({
     middleware: ['guest-only']
 })
 
-const { user } = useAuth()
+const { user: currentUser, login } = useAuth()
 
 const form = reactive({
     data: {
@@ -13,37 +13,24 @@ const form = reactive({
     pending: false,
 })
 
-async function login() {
+async function onLoginClick(choice: 'user' | 'admin') {
     try {
-        user.value = await $fetch('/api/auth/login', {
-            method: 'POST',
-            body: form.data
-        })
+        form.pending = true
 
-        if (user.value.roles.includes('ADMIN')) {
-            await navigateTo('/admin')
-        } else {
+        if (choice === "user") {
+            await login("user@gmail.com", "password")
             await navigateTo('/private')
+        }
+
+        if (choice === "admin") {
+            await login("admin@gmail.com", "password")
+            await navigateTo('/admin')
         }
     } catch (error) {
         console.error(error);
     } finally {
         form.pending = false
     }
-}
-
-async function onLoginClick(choice: 'user' | 'admin') {
-    form.pending = true
-
-    if (choice === "user") {
-        form.data = { email: "user@gmail.com", password: "password" }
-    }
-
-    if (choice === "admin") {
-        form.data = { email: "admin@gmail.com", password: "password" }
-    }
-
-    await login()
 }
 </script>
 
@@ -60,7 +47,7 @@ async function onLoginClick(choice: 'user' | 'admin') {
                 class="py-1 px-2 rounded bg-light-100 hover:bg-light-700 transition-colors">Administrateur</button>
         </div>
         <code class="mb-3 block text-light-100">
-            <pre>utilisateur: {{ JSON.stringify(user, null, 2) }}</pre>
+            <pre>utilisateur: {{ JSON.stringify(currentUser, null, 2) }}</pre>
         </code>
     </div>
 </template>
