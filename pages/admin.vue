@@ -3,7 +3,7 @@ definePageMeta({
     middleware: ['admin-only']
 })
 
-const user = useState('user', () => null)
+const { user } = useAuth()
 </script>
 
 <template>

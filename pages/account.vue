@@ -4,8 +4,8 @@ const { user } = useAuth()
 
 <template>
     <div>
-        <h1 class="mb-3 text-lg font-bold text-light-100">Accueil</h1>
-        <p class="mb-3 text-light-100">Simple exemple d'authentification avec Nuxt3</p>
+        <h1 class="mb-3 text-lg font-bold text-light-100">Page du compte des utilisateurs</h1>
+        <p class="mb-3 text-light-100">Cette page ne devrait s'afficher que si l'utilisateur est connecté</p>
         <code class="mb-3 block text-light-100">
             <pre>utilisateur: {{ JSON.stringify(user, null, 2) }}</pre>
         </code>

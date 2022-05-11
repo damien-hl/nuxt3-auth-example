@@ -3,7 +3,7 @@ definePageMeta({
     middleware: ['guest-only']
 })
 
-const user = useState('user', () => null)
+const { user } = useAuth()
 
 const form = reactive({
     data: {
