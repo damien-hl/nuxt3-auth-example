@@ -7,5 +7,7 @@ export default defineEventHandler(async (event) => {
         expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
     });
 
-    return null;
+    return {
+        user: null
+    };
 })

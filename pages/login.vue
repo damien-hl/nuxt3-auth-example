@@ -1,35 +1,38 @@
 <script lang="ts" setup>
 definePageMeta({
     middleware: ['guest-only']
-})
+});
 
-const { user: currentUser, login } = useAuth()
+const { user: currentUser, isAdmin, login } = useAuth();
 
 const form = reactive({
     data: {
-        email: '',
-        password: ''
+        email: 'admin@gmail.com',
+        password: 'password',
+        rememberMe: false
     },
+    error: '',
     pending: false,
 })
 
-async function onLoginClick(choice: 'user' | 'admin') {
+async function onLoginClick() {
     try {
-        form.pending = true
+        form.error = '';
+        form.pending = true;
 
-        if (choice === "user") {
-            await login("user@gmail.com", "password")
-            await navigateTo('/private')
-        }
+        await login(form.data.email, form.data.password, form.data.rememberMe);
 
-        if (choice === "admin") {
-            await login("admin@gmail.com", "password")
-            await navigateTo('/admin')
-        }
+        const redirect = isAdmin.value ? '/admin' : '/private';
+        
+        await navigateTo(redirect)
     } catch (error) {
         console.error(error);
+
+        if (error.data.message) {
+            form.error = error.data.message;
+        }
     } finally {
-        form.pending = false
+        form.pending = false;
     }
 }
 </script>
@@ -39,13 +42,20 @@ async function onLoginClick(choice: 'user' | 'admin') {
         <h1 class="mb-3 text-lg font-bold text-light-100">Page de connexion</h1>
         <p class="mb-3 text-light-100">Cette page ne devrait s'afficher que si l'utilisateur n'est <span
                 class="font-bold">PAS</span> connecté</p>
-        <p class="mb-3 text-light-100">Se connecter en tant que</p>
-        <div class="mb-3 flex gap-3">
-            <button @click="onLoginClick('user')" :disabled="form.pending"
-                class="py-1 px-2 rounded bg-light-100 hover:bg-light-700 transition-colors">Utilisateur</button>
-            <button @click="onLoginClick('admin')" :disabled="form.pending"
-                class="py-1 px-2 rounded bg-light-100 hover:bg-light-700 transition-colors">Administrateur</button>
-        </div>
+
+        <p v-if="form.error" class="mb-3 text-red-500">{{ form.error }}</p>
+
+        <form @submit.prevent="onLoginClick" class="mb-3 flex flex-wrap gap-3">
+            <div class="w-full">
+                <input v-model="form.data.rememberMe" type="checkbox" id="remember-me">
+                <label for="remember-me" class="ml-1 text-light-100">Se souvenir de moi</label>
+            </div>
+            <input v-model="form.data.email" type="email" placeholder="Adresse email" required>
+            <input v-model="form.data.password" type="password" placeholder="Mot de passe" required>
+            <button type="submit" :disabled="form.pending"
+                class="py-1 px-2 rounded bg-light-100 hover:bg-light-700 transition-colors">Connexion</button>
+        </form>
+
         <code class="mb-3 block text-light-100">
             <pre>utilisateur: {{ JSON.stringify(currentUser, null, 2) }}</pre>
         </code>

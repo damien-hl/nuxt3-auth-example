@@ -1,32 +1,39 @@
 export const useAuth = () => {
-    const user = useState('user', () => null)
+    const user = useState('user', () => null);
 
-    const isConnected = computed(() => user.value !== null)
+    const isConnected = computed(() => user.value !== null);
 
-    const isGuest = computed(() => user.value === null)
+    const isGuest = computed(() => user.value === null);
 
-    const isAdmin = computed(() => user.value && user.value.roles.includes('ADMIN'))
+    const isAdmin = computed(() => user.value && user.value.roles.includes('ADMIN'));
 
     async function init() {
-        user.value = await $fetch('/api/auth/me', {
+        const data = await $fetch('/api/auth/me', {
             headers: useRequestHeaders(['cookie'])
         });
+
+        user.value = data.user;
     }
 
-    async function login(email: string, password: string) {
-        user.value = await $fetch('/api/auth/login', {
+    async function login(email: string, password: string, rememberMe: boolean) {
+        const data = await $fetch('/api/auth/login', {
             method: 'POST',
             body: {
                 email,
-                password
+                password,
+                rememberMe
             }
-        })
+        });
+
+        user.value = data.user;
     }
 
     async function logout() {
-        user.value = await $fetch('/api/auth/logout', {
+        const data = await $fetch('/api/auth/logout', {
             method: 'POST',
-        })
+        });
+
+        user.value = data.user;
     }
 
     return {

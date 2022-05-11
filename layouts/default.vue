@@ -1,21 +1,21 @@
 <script lang="ts" setup>
-const { user: currentUser, isAdmin, logout } = useAuth()
+const { user: currentUser, isAdmin, logout } = useAuth();
 
 const form = reactive({
     pending: false,
-})
+});
 
 async function onLogoutClick() {
     try {
-        form.pending = true
+        form.pending = true;
         
-        await logout()
+        await logout();
 
-        await navigateTo('/')
+        await navigateTo('/');
     } catch (error) {
         console.error(error);
     } finally {
-        form.pending = false
+        form.pending = false;
     }
 }
 </script>

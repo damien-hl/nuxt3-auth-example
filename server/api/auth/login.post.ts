@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
     if (!userWithPassword) {
         return createError({
             statusCode: 401,
-            message: "L'adresse email ou le mot de passe est incorrect",
+            message: "Identifiants incorrects",
         });
     }
 
@@ -32,7 +32,7 @@ export default defineEventHandler(async (event) => {
     if (!verified) {
         return createError({
             statusCode: 401,
-            message: "L'adresse email ou le mot de passe est incorrect",
+            message: "Identifiants incorrects",
         });
     }
 
@@ -51,5 +51,7 @@ export default defineEventHandler(async (event) => {
 
     const { password: _password, ...userWithoutPassword } = userWithPassword
 
-    return userWithoutPassword;
+    return {
+        user: userWithoutPassword
+    };
 })

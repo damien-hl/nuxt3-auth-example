@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 definePageMeta({
     middleware: ['admin-only']
-})
+});
 
-const { data: users } = await useAsyncData('users', () => $fetch('/api/users', { headers: useRequestHeaders(['cookie']) }))
+const { data: users } = await useAsyncData('users', () => $fetch('/api/users', { headers: useRequestHeaders(['cookie']) }));
 
-const { user: currentUser } = useAuth()
+const { user: currentUser } = useAuth();
 </script>
 
 <template>

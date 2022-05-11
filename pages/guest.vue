@@ -3,7 +3,7 @@ definePageMeta({
     middleware: ['guest-only']
 })
 
-const { user: currentUser } = useAuth()
+const { user: currentUser } = useAuth();
 </script>
 
 <template>
