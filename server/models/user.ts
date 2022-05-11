@@ -24,3 +24,7 @@ export async function getUserByEmail(email: string) {
 export async function getUserById(id: string) {
     return users.find(user => user.id === id);
 }
+
+export async function isAdmin(user: any) {
+    return user && user.roles.includes("ADMIN");
+}

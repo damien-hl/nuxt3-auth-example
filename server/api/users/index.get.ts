@@ -1,9 +1,7 @@
-import { getUsers } from "~~/server/models/user";
+import { getUsers, isAdmin } from "~~/server/models/user";
 
 export default defineEventHandler(async (event) => {
-    const userWithPassword = event.context.user; 
-
-    if (!userWithPassword || !userWithPassword.roles.includes('ADMIN')) {
+    if (!isAdmin(event.context.user)) {
         return createError({
             statusCode: 401,
             message: "Vous n'avez pas les droits nécessaires pour accéder à cette ressource",
