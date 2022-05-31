@@ -75,7 +75,7 @@ async function onLoginClick() {
             <div class="flex-grow">
                 <p class="text-light-100">Try this admin credentials:</p>
                 <p class="text-light-100">
-                    email: <code>user@gmail.com</code>
+                    email: <code>admin@gmail.com</code>
                     <br>
                     password: <code>password</code>
                 </p>
