@@ -13,6 +13,6 @@ export default defineNuxtConfig({
         'virtual:windi-devtools',
     ],
     windicss: {
-      analyze: true
-    }
+        analyze: true
+    },
 })

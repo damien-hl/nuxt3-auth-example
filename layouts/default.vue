@@ -24,21 +24,20 @@ async function onLogoutClick() {
     <div class="min-h-screen flex flex-col bg-slate-900">
         <header class="p-3 mx-auto w-full max-w-4xl ">
             <nav class="flex gap-3">
-                <NuxtLink to="/" class="underline text-gray-400 hover:text-gray-200">Accueil</NuxtLink>
+                <NuxtLink to="/" class="underline text-gray-400 hover:text-gray-200">Home</NuxtLink>
                 <template v-if="currentUser">
-                    <NuxtLink to="/private" class="underline text-gray-400 hover:text-gray-200 transition-colors">Privé
+                    <NuxtLink to="/private" class="underline text-gray-400 hover:text-gray-200 transition-colors">Private
                     </NuxtLink>
                     <NuxtLink v-if="isAdmin" to="/admin"
                         class="underline text-gray-400 hover:text-gray-200 transition-colors">Admin</NuxtLink>
                     <button @click="onLogoutClick" :disabled="form.pending"
-                        class="mb-3 ml-auto py-1 px-2 rounded bg-light-100 hover:bg-light-700 transition-colors">Se
-                        déconnecter</button>
+                        class="mb-3 ml-auto py-1 px-2 rounded bg-light-100 hover:bg-light-700 transition-colors">Logout</button>
                 </template>
                 <template v-else>
                     <NuxtLink to="/guest" class="underline text-gray-400 hover:text-gray-200 transition-colors">Public
                     </NuxtLink>
                     <NuxtLink to="/login"
-                        class="ml-auto py-1 px-2 rounded bg-light-100 hover:bg-light-700 transition-colors">Se connecter
+                        class="ml-auto py-1 px-2 rounded bg-light-100 hover:bg-light-700 transition-colors">Login
                     </NuxtLink>
                 </template>
             </nav>

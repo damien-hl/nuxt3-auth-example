@@ -8,10 +8,10 @@ const { user: currentUser } = useAuth();
 
 <template>
     <div>
-        <h1 class="mb-3 text-lg font-bold text-light-100">Page privée</h1>
-        <p class="mb-3 text-light-100">Cette page ne devrait s'afficher que si l'utilisateur est connecté</p>
+        <h1 class="mb-3 text-lg font-bold text-light-100">Private page</h1>
+        <p class="mb-3 text-light-100">This page should only be visible if user is connected</p>
         <code class="mb-3 block text-light-100">
-            <pre>utilisateur: {{ JSON.stringify(currentUser, null, 2) }}</pre>
+            <pre>current user: {{ JSON.stringify(currentUser, null, 2) }}</pre>
         </code>
     </div>
 </template>

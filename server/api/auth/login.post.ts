@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
     if (!email || !password) {
         return createError({
             statusCode: 400,
-            message: "L'adresse email et le mot de passe sont requis",
+            message: "Email address and password are required",
         });
     }
 
@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
     if (!userWithPassword) {
         return createError({
             statusCode: 401,
-            message: "Identifiants incorrects",
+            message: "Bad credentials",
         });
     }
 
@@ -32,7 +32,7 @@ export default defineEventHandler(async (event) => {
     if (!verified) {
         return createError({
             statusCode: 401,
-            message: "Identifiants incorrects",
+            message: "Bad credentials",
         });
     }
 
