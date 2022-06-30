@@ -4,6 +4,12 @@ Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
 
 ![Cover](./cover.jpg)
 
+## Features
+
+- ⚡️ Login with email and password
+- 📝 Guest, private, admin pages
+- 🔥 Active session on page reload
+
 ## Setup
 
 Make sure to install the dependencies:
