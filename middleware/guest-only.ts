@@ -1,5 +1,5 @@
 export default defineNuxtRouteMiddleware(async (to, from) => {
-    const { user } = useAuth()
+    const user = useAuthUser()
 
     if (user.value) {
         // Same route === Initial load

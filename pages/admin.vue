@@ -7,7 +7,7 @@ definePageMeta({
 
 const { data: users } = await useAsyncData('users', () => $fetch<Omit<User, 'password'>[]>('/api/users', { headers: useRequestHeaders(['cookie']) }));
 
-const { user: currentUser } = useAuth();
+const currentUser = useAuthUser();
 </script>
 
 <template>

@@ -3,7 +3,9 @@ definePageMeta({
     middleware: ['guest-only']
 });
 
-const { user: currentUser, isAdmin, login } = useAuth();
+const currentUser = useAuthUser();
+const isAdmin = useAdmin();
+const { login } = useAuth();
 
 const form = reactive({
     data: {
@@ -21,7 +23,7 @@ async function onLoginClick() {
         form.pending = true;
 
         await login(form.data.email, form.data.password, form.data.rememberMe);
-
+        
         const redirect = isAdmin.value ? '/admin' : '/private';
 
         await navigateTo(redirect)

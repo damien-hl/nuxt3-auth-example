@@ -4,3 +4,5 @@ export type User = {
     password: string;
     roles: string[];
 }
+
+export type UserWithoutPassword = Omit<User, "password">

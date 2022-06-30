@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-const { user: currentUser, isAdmin, logout } = useAuth();
+const currentUser = useAuthUser();
+const isAdmin = useAdmin();
+const { logout } = useAuth();
 
 const form = reactive({
     pending: false,

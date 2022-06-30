@@ -1,7 +1,7 @@
 export default defineNuxtRouteMiddleware(async (to, from) => {
-    const { user } = useAuth()
+    const isAdmin = useAdmin();
 
-    if (!user.value || !user.value.roles.includes('ADMIN')) {
+    if (!isAdmin) {
         // Same route === Initial load
         if (from.name === to.name) {
             return navigateTo({name: 'index'})
