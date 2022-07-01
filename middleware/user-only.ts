@@ -1,11 +1,6 @@
-export default defineNuxtRouteMiddleware(async (to, from) => {
+export default defineNuxtRouteMiddleware(async (_to, _from) => {
   const user = useAuthUser()
 
-  if (!user.value) {
-    // Same route === Initial load
-    if (from.name === to.name)
-      return navigateTo({ name: 'index' })
-
-    return abortNavigation()
-  }
+  if (!user.value)
+    return navigateTo({ name: 'login' })
 })
