@@ -1,19 +1,17 @@
 <script lang="ts" setup>
 definePageMeta({
-    middleware: ['guest-only']
+  middleware: ['guest-only'],
 })
 
-const currentUser = useAuthUser();
+const currentUser = useAuthUser()
 </script>
 
 <template>
-    <div>
-        <h1 class="mb-3 text-lg font-bold text-light-100">Guest page</h1>
+  <div>
+    <PageTitle title="Guest page" />
 
-        <p class="mb-3 text-light-100">This page should only be accessible to guests.</p>
+    <PageDescription description="This page should only be accessible to guests." />
 
-        <code class="mb-3 block text-light-100">            
-            <pre>current user: {{ JSON.stringify(currentUser, null, 2) }}</pre>
-        </code>
-    </div>
+    <PageUser :user="currentUser" />
+  </div>
 </template>
