@@ -7,9 +7,11 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^0.25.2",
     "@types/cookie-signature": "^1.0.4",
-    "nuxt": "^3.0.0-rc.4",
-    "nuxt-windicss": "^2.3.1"
+    "@unocss/nuxt": "^0.42.0",
+    "eslint": "^8.18.0",
+    "nuxt": "^3.0.0-rc.4"
   },
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",

@@ -1,15 +1,16 @@
 export default defineEventHandler(async (event) => {
-    const userWithPassword = event.context.user; 
+  const userWithPassword = event.context.user
 
-    if (!userWithPassword) {
-        return {
-            user: null
-        };
-    }
-
-    const { password: _password, ...userWithoutPassword } = userWithPassword
-
+  if (!userWithPassword) {
     return {
-        user: userWithoutPassword
-    };
+      user: null,
+    }
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { password: _password, ...userWithoutPassword } = userWithPassword
+
+  return {
+    user: userWithoutPassword,
+  }
 })

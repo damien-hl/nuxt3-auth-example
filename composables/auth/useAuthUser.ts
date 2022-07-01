@@ -1,5 +1,5 @@
-import type { UserWithoutPassword } from "~~/types";
+import type { UserWithoutPassword } from '~~/types'
 
 export const useAuthUser = () => {
-  return useState<UserWithoutPassword>("user", () => null);
-};
+  return useState<UserWithoutPassword | null>('user', () => null)
+}
