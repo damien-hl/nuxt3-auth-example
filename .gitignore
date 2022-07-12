@@ -5,3 +5,6 @@ node_modules
 .cache
 .output
 .env
+/test-results/
+/playwright-report/
+/playwright/.cache/
