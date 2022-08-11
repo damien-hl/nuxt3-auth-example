@@ -46,7 +46,7 @@ export default defineEventHandler(async (event) => {
     path: '/',
     sameSite: 'strict',
     secure: process.env.NODE_ENV === 'production',
-    expires: rememberMe ? new Date(Date.now() + 1000 * 60 * 60 * 24 * 7) : new Date(Date.now() + 1000 * 60 * 60 * 24),
+    expires: rememberMe ? new Date(Date.now() + config.cookieRememberMeExpires) : new Date(Date.now() + config.cookieExpires),
   })
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

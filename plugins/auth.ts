@@ -1,4 +1,4 @@
-export default defineNuxtPlugin(async (_nuxtApp) => {
+export default defineNuxtPlugin(async () => {
   const { me } = useAuth()
 
   await me()

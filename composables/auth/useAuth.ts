@@ -42,7 +42,7 @@ export const useAuth = () => {
     if (!authUser.value) {
       try {
         const data = await $fetch('/api/auth/me', {
-          headers: useRequestHeaders(['cookie']),
+          headers: useRequestHeaders(['cookie']) as HeadersInit,
         })
 
         setUser(data.user)

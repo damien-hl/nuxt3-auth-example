@@ -5,6 +5,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     cookieName: process.env.COOKIE_NAME || '__session',
     cookieSecret: process.env.COOKIE_SECRET || 'secret',
+    cookieExpires: parseInt(process.env.COOKIE_REMEMBER_ME_EXPIRES || '1000 * 60 * 60 * 24', 10), // 1 day
+    cookieRememberMeExpires: parseInt(process.env.COOKIE_REMEMBER_ME_EXPIRES || '1000 * 60 * 60 * 24 * 7', 10), // 7 days
   },
   modules: [
     '@unocss/nuxt',
