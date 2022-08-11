@@ -39,9 +39,9 @@ export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
 
   const session = serialize({ userId: userWithPassword.id })
-  const signedSession = sign(session, config.secret)
+  const signedSession = sign(session, config.cookieSecret)
 
-  setCookie(event, '__session', signedSession, {
+  setCookie(event, config.cookieName, signedSession, {
     httpOnly: true,
     path: '/',
     sameSite: 'strict',

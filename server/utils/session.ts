@@ -27,14 +27,14 @@ export function unsign(value: string, secret: string) {
 }
 
 export async function getSession(event: CompatibilityEvent) {
-  const cookie = useCookies(event).__session
+  const config = useRuntimeConfig()
+
+  const cookie = useCookies(event)[config.cookieName]
 
   if (!cookie)
     return null
 
-  const config = useRuntimeConfig()
-
-  const unsignedSession = unsign(cookie, config.secret)
+  const unsignedSession = unsign(cookie, config.cookieSecret)
 
   if (!unsignedSession)
     return null
