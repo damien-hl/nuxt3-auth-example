@@ -1,9 +1,9 @@
 import bcrypt from 'bcryptjs'
 
-export async function hash(plainPassword: string) {
+export async function hashPasswoard(plainPassword: string) {
   return bcrypt.hash(plainPassword, 10)
 }
 
-export function verify(plainPassword: string, hash: string) {
+export function verifyPassword(plainPassword: string, hash: string) {
   return bcrypt.compare(plainPassword, hash)
 }

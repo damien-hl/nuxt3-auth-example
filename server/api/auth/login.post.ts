@@ -1,6 +1,6 @@
 import { getUserByEmail } from '~~/server/models/user'
-import { verify } from '~~/server/utils/password'
-import { serialize, sign } from '~~/server/utils/session'
+import { verifyPassword } from '~~/server/utils/password'
+import { signJwt } from '~~/server/utils/jwt'
 
 export default defineEventHandler(async (event) => {
   const body = await useBody<{ email: string; password: string; rememberMe: boolean }>(event)
@@ -27,7 +27,7 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const verified = await verify(password, userWithPassword.password)
+  const verified = await verifyPassword(password, userWithPassword.password)
 
   if (!verified) {
     return createError({
@@ -38,15 +38,14 @@ export default defineEventHandler(async (event) => {
 
   const config = useRuntimeConfig()
 
-  const session = serialize({ userId: userWithPassword.id })
-  const signedSession = sign(session, config.cookieSecret)
+  const token = signJwt({ userId: userWithPassword.id }, config.jwtSecret)
 
-  setCookie(event, config.cookieName, signedSession, {
-    httpOnly: true,
+  setCookie(event, config.cookieName, token, {
+    httpOnly: true, // If you don't need the cookie to be accessible from browser
     path: '/',
     sameSite: 'strict',
     secure: process.env.NODE_ENV === 'production',
-    expires: rememberMe ? new Date(Date.now() + config.cookieRememberMeExpires) : new Date(Date.now() + config.cookieExpires),
+    expires: rememberMe ? new Date(Date.now() + config.cookieRememberMeExpires) : new Date(Date.now() + config.cookieExpires), // Use the cookie expiry instead of the jwt expiry
   })
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
