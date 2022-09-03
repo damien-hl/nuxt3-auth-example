@@ -4,16 +4,14 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "test:e2e": "playwright test"
+    "preview": "nuxt preview"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.26.1",
-    "@playwright/test": "^1.25.0",
     "@types/cookie-signature": "^1.0.4",
     "@unocss/nuxt": "^0.45.6",
     "eslint": "^8.21.0",
-    "nuxt": "^3.0.0-rc.8"
+    "nuxt": "^3.0.0-rc.9"
   },
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",
