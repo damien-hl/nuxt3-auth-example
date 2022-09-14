@@ -8,12 +8,12 @@
     "test:e2e": "playwright test"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.26.1",
-    "@playwright/test": "^1.25.0",
+    "@antfu/eslint-config": "^0.26.3",
+    "@playwright/test": "^1.25.2",
     "@types/cookie-signature": "^1.0.4",
-    "@unocss/nuxt": "^0.45.6",
-    "eslint": "^8.21.0",
-    "nuxt": "^3.0.0-rc.8"
+    "@unocss/nuxt": "^0.45.21",
+    "eslint": "^8.23.1",
+    "nuxt": "^3.0.0-rc.10"
   },
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",
