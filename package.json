@@ -4,8 +4,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "test:e2e": "playwright test"
+    "preview": "nuxt preview"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.26.3",

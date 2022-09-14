@@ -25,6 +25,12 @@ npm install
 pnpm install --shamefully-hoist
 ```
 
+Copy the `.env.example` file to `.env` and fill in the values.
+
+```bash
+cp .env.example .env
+```
+
 ## Development Server
 
 Start the development server on http://localhost:3000
