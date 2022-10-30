@@ -9,9 +9,7 @@ const currentUser = useAuthUser()
 <template>
   <div>
     <PageTitle title="Private page" />
-
     <PageDescription description="This page should only be visible if user is connected" />
-
     <PageUser :user="currentUser" />
   </div>
 </template>

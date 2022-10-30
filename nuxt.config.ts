@@ -12,10 +12,6 @@ export default {
   modules: [
     '@unocss/nuxt',
   ],
-  experimental: {
-    reactivityTransform: true,
-    viteNode: false,
-  },
   unocss: {
     preflight: true,
   },

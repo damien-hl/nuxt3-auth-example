@@ -1,4 +1,4 @@
-import type { CompatibilityEvent } from 'h3'
+import type { H3Event } from 'h3'
 
 import cookieSignature from 'cookie-signature'
 
@@ -26,7 +26,7 @@ export function unsign(value: string, secret: string) {
   return cookieSignature.unsign(value, secret)
 }
 
-export async function getSession(event: CompatibilityEvent) {
+export async function getSession(event: H3Event) {
   const config = useRuntimeConfig()
 
   const cookie = useCookies(event)[config.cookieName]

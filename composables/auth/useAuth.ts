@@ -16,7 +16,7 @@ export const useAuth = () => {
     password: string,
     rememberMe: boolean,
   ) => {
-    const data = await $fetch('/api/auth/login', {
+    const data = await $fetch('/auth/login', {
       method: 'POST',
       body: {
         email,
@@ -31,7 +31,7 @@ export const useAuth = () => {
   }
 
   const logout = async () => {
-    const data = await $fetch('/api/auth/logout', {
+    const data = await $fetch('/auth/logout', {
       method: 'POST',
     })
 
@@ -41,7 +41,7 @@ export const useAuth = () => {
   const me = async () => {
     if (!authUser.value) {
       try {
-        const data = await $fetch('/api/auth/me', {
+        const data = await $fetch('/auth/me', {
           headers: useRequestHeaders(['cookie']) as HeadersInit,
         })
 

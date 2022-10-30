@@ -1,11 +1,9 @@
 <script lang="ts" setup>
-import type { User } from '~~/types'
-
 definePageMeta({
   middleware: ['admin-only'],
 })
 
-const { data: users } = await useAsyncData('users', () => $fetch<Omit<User, 'password'>[]>('/api/users', { headers: useRequestHeaders(['cookie']) }))
+const { data: users } = await useAsyncData('users', () => $fetch('/api/users', { headers: useRequestHeaders(['cookie']) as HeadersInit }))
 
 const currentUser = useAuthUser()
 </script>
@@ -13,11 +11,8 @@ const currentUser = useAuthUser()
 <template>
   <div>
     <PageTitle title="Admin page" />
-
     <PageDescription description="This page should only be visible if user is connected and has admin role" />
-
     <PageUser :user="currentUser" />
-
     <div mb-3 text-light-100>
       <div table w-full>
         <div table-header-group font-bold>
