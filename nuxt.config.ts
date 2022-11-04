@@ -2,7 +2,7 @@
 const ONE_DAY = 60 * 60 * 24 * 1000
 const ONE_WEEK = ONE_DAY * 7
 
-export default {
+export default defineNuxtConfig({
   runtimeConfig: {
     cookieName: process.env.COOKIE_NAME || '__session',
     cookieSecret: process.env.COOKIE_SECRET || 'secret',
@@ -15,4 +15,4 @@ export default {
   unocss: {
     preflight: true,
   },
-}
+})

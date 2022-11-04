@@ -12,7 +12,7 @@
     "@types/cookie-signature": "^1.0.4",
     "@unocss/nuxt": "^0.45.22",
     "eslint": "^8.23.1",
-    "nuxt": "^3.0.0-rc.12"
+    "nuxt": "^3.0.0-rc.13"
   },
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",
