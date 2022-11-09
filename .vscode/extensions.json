@@ -5,6 +5,7 @@
         "antfu.goto-alias",
         "csstools.postcss",
         "dbaeumer.vscode-eslint",
-        "Vue.volar"
+        "vue.volar",
+        "prisma.prisma"
     ]
 }

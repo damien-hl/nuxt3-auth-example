@@ -1,8 +1,13 @@
-export interface User {
-  id: string;
-  email: string;
-  password: string;
-  role: number;
+export enum Role {
+  ADMIN = 1,
+  USER = 2,
 }
 
-export type UserWithoutPassword = Omit<User, 'password'>;
+export interface User {
+  id: string
+  email: string
+  password: string
+  role: Role
+}
+
+export type UserWithoutPassword = Omit<User, 'password'>

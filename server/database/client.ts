@@ -1,7 +1,12 @@
-import pkg from '@prisma/client';
+import pkg from '@prisma/client'
 
-const { PrismaClient } = pkg;
+const { PrismaClient } = pkg
 const prisma = new PrismaClient({
+  datasources: {
+    db: {
+      url: process.env.DATABASE_URL,
+    },
+  },
   //   log: [
   //     {
   //       emit: 'stdout',
@@ -20,5 +25,5 @@ const prisma = new PrismaClient({
   //       level: 'warn',
   //     },
   //   ],
-});
-export default prisma;
+})
+export default prisma
