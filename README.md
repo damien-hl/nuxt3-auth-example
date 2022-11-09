@@ -2,13 +2,16 @@
 
 Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
 
+Database is initially loaded as a sqlLite DB via [Prisma](https://www.prisma.io/). You may need to create it with the command `npx prisma migrate dev`.
+
 ![Cover](./cover.jpg)
 
 ## Features
 
 - ⚡️ Login with email and password
+- 🗄️ User data stored in database via [Prisma](https://www.prisma.io/)
 - 📝 Guest, private, admin pages
-- 🔥 Active session on page reload
+- 🔥 Active session on page reload with [JWT](https://jwt.io/)
 
 ## Setup
 

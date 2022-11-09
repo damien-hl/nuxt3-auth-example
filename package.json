@@ -11,13 +11,20 @@
     "@antfu/eslint-config": "^0.26.1",
     "@playwright/test": "^1.25.0",
     "@types/jsonwebtoken": "^8.5.8",
+    "@types/uuid": "^8.3.4",
     "@unocss/nuxt": "^0.45.6",
     "eslint": "^8.21.0",
     "nuxt": "^3.0.0-rc.7"
   },
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",
+    "@prisma/client": "^4.3.1",
     "bcryptjs": "^2.4.3",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "prisma": "^4.3.1",
+    "uuid": "^9.0.0"
+  },
+  "prisma": {
+    "schema": "server/database/schema.prisma"
   }
 }

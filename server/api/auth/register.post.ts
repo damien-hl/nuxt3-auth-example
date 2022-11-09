@@ -1,15 +1,12 @@
 import { getUserByEmail } from '~~/server/database/repositories/userRepository';
-import { verifyPassword } from '~~/server/utils/password';
 import { signJwt } from '~~/server/utils/jwt';
+import { hashPasswoard } from '~~/server/utils/password';
+import { createUser } from '~~/server/database/repositories/userRepository';
 
 export default defineEventHandler(async (event) => {
-  const body = await useBody<{
-    email: string;
-    password: string;
-    rememberMe: boolean;
-  }>(event);
+  const body = await readBody(event);
 
-  const { email, password, rememberMe } = body;
+  const { email, password, rememberMe } = body.data;
 
   if (!email || !password) {
     return createError({
@@ -18,27 +15,27 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  const userWithPassword = await getUserByEmail(email);
+  const emailExists = await getUserByEmail(email);
 
-  if (!userWithPassword) {
+  if (emailExists !== null) {
     return createError({
       statusCode: 401,
-      message: 'Bad credentials',
+      statusMessage: 'Email is already registered',
     });
   }
 
-  const verified = await verifyPassword(password, userWithPassword.password);
+  const encryptedPassword: string = await hashPasswoard(password);
 
-  if (!verified) {
-    return createError({
-      statusCode: 401,
-      message: 'Bad credentials',
-    });
-  }
+  const userData = {
+    email: email,
+    password: encryptedPassword,
+  };
+
+  const user = await createUser(userData);
 
   const config = useRuntimeConfig();
 
-  const token = signJwt({ userId: userWithPassword.id }, config.jwtSecret);
+  const token = signJwt({ userId: user.id }, config.jwtSecret);
 
   setCookie(event, config.cookieName, token, {
     httpOnly: true, // If you don't need the cookie to be accessible from browser
@@ -51,7 +48,7 @@ export default defineEventHandler(async (event) => {
   });
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { password: _password, ...userWithoutPassword } = userWithPassword;
+  const { password: _password, ...userWithoutPassword } = user;
 
   return {
     user: userWithoutPassword,

@@ -10,7 +10,6 @@ const form = reactive({
 async function onLogoutClick() {
   try {
     form.pending = true
-
     await logout()
 
     await navigateTo('/')
@@ -41,11 +40,8 @@ async function onLogoutClick() {
             Admin
           </PageLink>
 
-          <button
-            mb-3 ml-auto py-1 px-2 rounded bg-light-100 hover="bg-light-700" transition-colors
-            :disabled="form.pending"
-            @click="onLogoutClick"
-          >
+          <button mb-3 ml-auto py-1 px-2 rounded bg-light-100 hover="bg-light-700" transition-colors
+            :disabled="form.pending" @click="onLogoutClick">
             Logout
           </button>
         </template>
@@ -55,11 +51,12 @@ async function onLogoutClick() {
             Public
           </PageLink>
 
-          <NuxtLink
-            to="/login"
-            ml-auto py-1 px-2 rounded bg-light-100 hover="bg-light-700" transition-colors
-          >
+          <NuxtLink to="/login" ml-auto py-1 px-2 rounded bg-light-100 hover="bg-light-700" transition-colors>
             Login
+          </NuxtLink>
+
+          <NuxtLink to="/register" py-1 px-2 rounded bg-light-100 hover="bg-light-700" transition-colors>
+            Register
           </NuxtLink>
         </template>
       </nav>
