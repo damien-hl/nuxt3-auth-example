@@ -29,7 +29,7 @@ export function unsign(value: string, secret: string) {
 export async function getSession(event: H3Event) {
   const config = useRuntimeConfig()
 
-  const cookie = useCookies(event)[config.cookieName]
+  const cookie = getCookie(event, config.cookieName)
 
   if (!cookie)
     return null

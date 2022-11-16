@@ -3,7 +3,7 @@ import { verify } from '~~/server/utils/password'
 import { serialize, sign } from '~~/server/utils/session'
 
 export default defineEventHandler(async (event) => {
-  const body = await useBody<{ email: string; password: string; rememberMe: boolean }>(event)
+  const body = await readBody<{ email: string; password: string; rememberMe: boolean }>(event)
 
   const {
     email,
