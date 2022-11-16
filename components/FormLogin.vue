@@ -46,8 +46,10 @@ async function onLoginClick() {
     </div>
     <input v-model="form.data.email" type="email" placeholder="Email" required>
     <input v-model="form.data.password" type="password" placeholder="Password" required>
-    <button type="submit" :disabled="form.pending" py-1 px-2 rounded bg-light-100 hover="bg-light-700"
-      transition-colors>
+    <button
+      type="submit" :disabled="form.pending" py-1 px-2 rounded bg-light-100 hover="bg-light-700"
+      transition-colors
+    >
       Login
     </button>
   </form>

@@ -7,17 +7,17 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview"
   },
-  "devDependencies": {
-    "@antfu/eslint-config": "^0.27.0",
-    "@playwright/test": "^1.26.0",
-    "@types/cookie-signature": "^1.0.4",
-    "@unocss/nuxt": "^0.45.22",
-    "eslint": "^8.23.1",
-    "nuxt": "^3.0.0-rc.14"
-  },
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",
     "bcryptjs": "^2.4.3",
     "cookie-signature": "^1.2.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.30.1",
+    "@playwright/test": "^1.28.0",
+    "@types/cookie-signature": "^1.0.4",
+    "@unocss/nuxt": "^0.46.5",
+    "eslint": "^8.27.0",
+    "nuxt": "^3.0.0-rc.14"
   }
 }
