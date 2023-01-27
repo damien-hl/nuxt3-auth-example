@@ -28,6 +28,6 @@ export async function getUserById(id: string) {
   return users.find(user => user.id === id)
 }
 
-export async function isAdmin(user: any) {
+export async function isAdmin(user?: User) {
   return user && user.roles.includes('ADMIN')
 }
