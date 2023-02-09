@@ -1,6 +1,4 @@
 import { getUserByEmail } from '~~/server/models/user'
-import { verify } from '~~/server/utils/password'
-import { serialize, sign } from '~~/server/utils/session'
 
 export default defineEventHandler(async (event) => {
   const body = await readBody<{ email: string; password: string; rememberMe: boolean }>(event)
