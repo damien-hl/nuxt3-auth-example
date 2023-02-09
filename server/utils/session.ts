@@ -26,7 +26,7 @@ export function unsign(value: string, secret: string) {
   return cookieSignature.unsign(value, secret)
 }
 
-export async function getSession(event: H3Event) {
+export async function getUserFromSession(event: H3Event) {
   const config = useRuntimeConfig()
 
   const cookie = getCookie(event, config.cookieName)
