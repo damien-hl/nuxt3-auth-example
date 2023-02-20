@@ -1,14 +1,19 @@
 <script lang="ts" setup>
+definePageMeta({ middleware: 'is-guest' })
+
 const formPending = ref(false)
 
-const onLogin = (credentials: { email: string; password: string; rememberMe: boolean }) => {
-  formPending.value = true
-  // eslint-disable-next-line no-console
-  console.log(credentials)
+const onLogin = async (credentials: { email: string; password: string }) => {
+  try {
+    formPending.value = true
 
-  setTimeout(() => {
+    await handleLogin(credentials.email, credentials.password)
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error)
+  } finally {
     formPending.value = false
-  }, 1000)
+  }
 }
 </script>
 

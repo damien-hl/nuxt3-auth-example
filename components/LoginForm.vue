@@ -4,7 +4,7 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits<{
-  (e: 'submit', payload: { email: string; password: string; rememberMe: boolean }): void
+  (e: 'submit', payload: { email: string; password: string }): void
 }>()
 
 const onLoginFormSubmit = (event: Event) => {
@@ -13,7 +13,6 @@ const onLoginFormSubmit = (event: Event) => {
   emit('submit', {
     email: fd.get('email') as string,
     password: fd.get('password') as string,
-    rememberMe: fd.get('remember-me') === 'on',
   })
 }
 </script>
@@ -31,7 +30,7 @@ const onLoginFormSubmit = (event: Event) => {
           required
           class="w-full dark:border-gray-700 dark:bg-slate-900 dark:text-gray-400"
         />
-        <span class="text-sm dark:text-gray-400">Try `admin@domain.ltd` or `user.domain.ltd`</span>
+        <span class="text-sm dark:text-gray-400">Try `admin@domain.ltd` or `user@domain.ltd`</span>
       </div>
       <div class="mb-4">
         <label for="password" class="mb-1 block text-sm dark:text-white">Password</label>
@@ -44,12 +43,6 @@ const onLoginFormSubmit = (event: Event) => {
           class="w-full dark:border-gray-700 dark:bg-slate-900 dark:text-gray-400"
         />
         <span class="text-sm dark:text-gray-400">Try `password`</span>
-      </div>
-      <div class="mb-4">
-        <label for="remember-me" class="mb-1 flex items-center space-x-2 text-sm dark:text-white">
-          <input id="remember-me" type="checkbox" name="remember-me" />
-          <span>Remember me?</span>
-        </label>
       </div>
       <div>
         <button
