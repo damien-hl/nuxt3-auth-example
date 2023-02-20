@@ -12,14 +12,13 @@
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@nuxtjs/tailwindcss": "^6.4.1",
+    "@tailwindcss/forms": "^0.5.3",
+    "@vueuse/nuxt": "^9.13.0",
     "eslint": "^8.34.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "nuxt": "^3.2.2",
     "prettier": "^2.8.4",
     "prettier-plugin-tailwindcss": "^0.2.3"
-  },
-  "dependencies": {
-    "@tailwindcss/forms": "^0.5.3"
   }
 }
