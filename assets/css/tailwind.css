@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  #__nuxt {
+    min-height: 100%;
+  }
+}
