@@ -36,6 +36,18 @@ const onLogout = async () => {
         <div class="ml-auto flex items-center space-x-2">
           <LogoutForm v-if="auth.isLoggedIn.value" :pending="formPending" @submit="onLogout" />
           <NuxtLink v-else to="/login" class="p-2 dark:text-white">Login</NuxtLink>
+          <a href="https://github.com/damien-hl/nuxt3-auth-example" target="_blank" class="dark:text-white">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="h-5 w-5 dark:text-white"
+            >
+              <use xlink:href="/icons.svg#github" />
+            </svg>
+          </a>
           <button class="ml-auto p-2" @click="toggleDark()">
             <svg
               xmlns="http://www.w3.org/2000/svg"
