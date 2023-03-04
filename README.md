@@ -1,4 +1,4 @@
-# Nuxt 3 Minimal Starter
+# Nuxt3 Auth example
 
 Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
 

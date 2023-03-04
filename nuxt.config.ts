@@ -1,6 +1,6 @@
-if (!process.env.NUXT_AUTH_PASSWORD) {
+if (!process.env.NUXT_AUTH_PASSWORD || String(process.env.NUXT_AUTH_PASSWORD).length < 32) {
   // eslint-disable-next-line no-console
-  console.warn('NUXT_AUTH_PASSWORD is not set. Using default password.')
+  console.warn('NUXT_AUTH_PASSWORD is not set or too short (min 32 characters required). Using default password.')
   process.env.NUXT_AUTH_PASSWORD = 'supersecretsupersecretsupersecret'
 }
 
