@@ -1,11 +1,13 @@
 {
-  "recommendations": [
-    "antfu.iconify",
-    "antfu.unocss",
-    "antfu.goto-alias",
-    "csstools.postcss",
-    "dbaeumer.vscode-eslint",
-    "vue.volar",
-    "Vue.vscode-typescript-vue-plugin"
-  ]
+    "recommendations": [
+        "antfu.iconify",
+        "antfu.unocss",
+        "antfu.goto-alias",
+        "csstools.postcss",
+        "dbaeumer.vscode-eslint",
+        "vue.volar",
+        "vue.vscode-typescript-vue-plugin",
+        "esbenp.prettier-vscode",
+        "editorconfig.editorconfig"
+    ]
 }
