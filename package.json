@@ -1,11 +1,12 @@
 {
+    "name": "nuxt3-auth-example",
     "private": true,
     "scripts": {
-        "postinstall": "nuxt prepare",
         "build": "nuxt build",
         "dev": "nuxt dev",
         "generate": "nuxt generate",
         "preview": "nuxt preview",
+        "postinstall": "nuxt prepare",
         "prepare": "husky install"
     },
     "lint-staged": {
