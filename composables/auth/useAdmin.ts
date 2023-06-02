@@ -1,10 +1,9 @@
 export const useAdmin = () => {
-  const authUser = useAuthUser()
+    const authUser = useAuthUser();
 
-  return computed(() => {
-    if (!authUser.value)
-      return false
+    return computed(() => {
+        if (!authUser.value) return false;
 
-    return authUser.value.roles.includes('ADMIN')
-  })
-}
+        return authUser.value.roles.includes("ADMIN");
+    });
+};

@@ -1,6 +1,5 @@
 export default defineEventHandler(async (event) => {
-  const user = await getUserFromSession(event)
+    const user = await getUserFromSession(event);
 
-  if (user)
-    event.context.user = user
-})
+    if (user) event.context.user = user;
+});
