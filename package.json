@@ -27,6 +27,6 @@
         "eslint-plugin-prettier": "^4.2.1",
         "husky": "^8.0.3",
         "lint-staged": "^13.2.2",
-        "nuxt": "^3.5.2"
+        "nuxt": "^3.6.1"
     }
 }
