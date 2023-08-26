@@ -1,7 +1,5 @@
 import type { H3Event } from "h3";
-
 import cookieSignature from "cookie-signature";
-
 import { getUserById } from "~~/server/models/user";
 
 export function serialize(obj: any) {
