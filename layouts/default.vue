@@ -23,9 +23,9 @@ async function onLogoutClick() {
 </script>
 
 <template>
-    <div min-h-screen flex flex-col bg-slate-900>
-        <header p-3 mx-auto w-full max-w-4xl>
-            <nav flex gap-3>
+    <div class="min-h-screen flex flex-col bg-slate-900">
+        <header class="p-3 mx-auto w-full max-w-4xl">
+            <nav class="flex gap-3">
                 <PageLink to="/"> Home </PageLink>
 
                 <template v-if="currentUser">
@@ -34,14 +34,7 @@ async function onLogoutClick() {
                     <PageLink v-if="isAdmin" to="/admin"> Admin </PageLink>
 
                     <button
-                        mb-3
-                        ml-auto
-                        py-1
-                        px-2
-                        rounded
-                        bg-light-100
-                        hover="bg-light-700"
-                        transition-colors
+                        class="mb-3 ml-auto py-1 px-2 rounded bg-light-100 hover:bg-light-700 transition-colors"
                         :disabled="form.pending"
                         @click="onLogoutClick"
                     >
@@ -52,14 +45,17 @@ async function onLogoutClick() {
                 <template v-else>
                     <PageLink to="/guest"> Public </PageLink>
 
-                    <NuxtLink to="/login" ml-auto py-1 px-2 rounded bg-light-100 hover="bg-light-700" transition-colors>
+                    <NuxtLink
+                        to="/login"
+                        class="ml-auto py-1 px-2 rounded bg-light-100 hover:bg-light-700 transition-colors"
+                    >
                         Login
                     </NuxtLink>
                 </template>
             </nav>
         </header>
 
-        <main p-3 mx-auto w-full max-w-4xl>
+        <main class="p-3 mx-auto w-full max-w-4xl">
             <slot />
         </main>
     </div>

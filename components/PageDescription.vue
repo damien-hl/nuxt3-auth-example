@@ -3,7 +3,7 @@ defineProps<{ description: string }>();
 </script>
 
 <template>
-    <p mb-3 text="lg light-100">
+    <p class="mb-3 text-lg text-light-100">
         {{ description }}
     </p>
 </template>

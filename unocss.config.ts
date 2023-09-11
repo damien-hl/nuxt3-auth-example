@@ -1,6 +1,5 @@
 import {
     defineConfig,
-    presetAttributify,
     presetIcons,
     presetTypography,
     presetUno,
@@ -8,12 +7,18 @@ import {
     transformerDirectives,
     transformerVariantGroup,
 } from "unocss";
+import { readFile } from "node:fs/promises";
 
 export default defineConfig({
     shortcuts: [],
+    preflights: [
+        {
+            getCSS: () => readFile("./node_modules/@unocss/reset/tailwind.css", "utf-8"),
+            layer: "preflights",
+        },
+    ],
     presets: [
         presetUno(),
-        presetAttributify(),
         presetIcons({
             scale: 1.2,
         }),

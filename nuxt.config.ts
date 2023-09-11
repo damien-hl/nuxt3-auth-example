@@ -10,7 +10,4 @@ export default defineNuxtConfig({
         cookieRememberMeExpires: parseInt(process.env.COOKIE_REMEMBER_ME_EXPIRES || ONE_WEEK.toString(), 10), // 7 days
     },
     modules: ["@unocss/nuxt"],
-    unocss: {
-        preflight: true,
-    },
 });

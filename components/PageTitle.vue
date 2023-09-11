@@ -3,7 +3,7 @@ defineProps<{ title: string }>();
 </script>
 
 <template>
-    <h1 mb-3 font-bold text="lg light-100">
+    <h1 class="mb-3 font-bold text-lg text-light-100">
         {{ title }}
     </h1>
 </template>
