@@ -14,13 +14,11 @@
         "*.{json,css,scss,md}": "prettier --write"
     },
     "dependencies": {
-        "bcryptjs": "^2.4.3",
-        "cookie-signature": "^1.2.1"
+        "bcryptjs": "^2.4.3"
     },
     "devDependencies": {
         "@nuxt/eslint-config": "^0.1.1",
         "@types/bcryptjs": "^2.4.2",
-        "@types/cookie-signature": "^1.1.0",
         "@unocss/nuxt": "^0.55.3",
         "eslint": "^8.48.0",
         "eslint-config-prettier": "^8.8.0",

@@ -4,7 +4,6 @@ export default defineEventHandler(async (event) => {
     const body = await readBody<{ email: string; password: string; rememberMe: boolean }>(event);
 
     const { email, password, rememberMe } = body;
-
     if (!email || !password) {
         return createError({
             statusCode: 400,
@@ -13,7 +12,6 @@ export default defineEventHandler(async (event) => {
     }
 
     const userWithPassword = await getUserByEmail(email);
-
     if (!userWithPassword) {
         return createError({
             statusCode: 401,
@@ -22,7 +20,6 @@ export default defineEventHandler(async (event) => {
     }
 
     const verified = await verify(password, userWithPassword.password);
-
     if (!verified) {
         return createError({
             statusCode: 401,
