@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import { User } from "~/types";
+import type { User } from "~/types";
 
 definePageMeta({
     middleware: ["admin-only"],
 });
 
 const { data: users } = await useAsyncData<User[]>("users", () =>
-    $fetch("/api/users", { headers: useRequestHeaders(["cookie"]) as HeadersInit })
+    $fetch("/api/users", { headers: useRequestHeaders(["cookie"]) as HeadersInit }),
 );
 
 const currentUser = useAuthUser();
