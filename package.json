@@ -1,31 +1,31 @@
 {
-    "name": "nuxt3-auth-example",
-    "private": true,
-    "scripts": {
-        "build": "nuxt build",
-        "dev": "nuxt dev",
-        "generate": "nuxt generate",
-        "preview": "nuxt preview",
-        "postinstall": "nuxt prepare",
-        "prepare": "husky install"
-    },
-    "lint-staged": {
-        "*.{js,ts,vue}": "eslint --fix",
-        "*.{json,css,scss,md}": "prettier --write"
-    },
-    "dependencies": {
-        "bcryptjs": "^2.4.3"
-    },
-    "devDependencies": {
-        "@nuxt/eslint-config": "^0.2.0",
-        "@types/bcryptjs": "^2.4.3",
-        "@unocss/nuxt": "^0.58.0",
-        "eslint": "^8.56.0",
-        "eslint-config-prettier": "^9.1.0",
-        "eslint-plugin-prettier": "^5.1.2",
-        "husky": "^8.0.3",
-        "lint-staged": "^15.2.0",
-        "nuxt": "^3.9.0",
-        "prettier": "^3.1.1"
-    }
+  "name": "nuxt3-auth-example",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": "eslint --fix",
+    "*.{json,css,scss,md}": "prettier --write"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3"
+  },
+  "devDependencies": {
+    "@nuxt/eslint-config": "^0.2.0",
+    "@types/bcryptjs": "^2.4.3",
+    "@unocss/nuxt": "^0.58.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "nuxt": "^3.9.0",
+    "prettier": "^3.1.1"
+  }
 }
