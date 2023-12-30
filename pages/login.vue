@@ -43,7 +43,7 @@ async function onLoginClick() {
       <h1 class="my-24 font-bold text-2xl text-center">Login to your account</h1>
     </header>
     <main class="mx-auto p-8 max-w-xs w-full flex-1">
-      <form @submit.prevent="onLoginClick">
+      <form class="mb-12" @submit.prevent="onLoginClick">
         <p
           v-if="form.error"
           class="mb-3 px-3 py-1.5 w-full border rounded border-red-400 text-sm text-center text-red-400"
@@ -70,9 +70,14 @@ async function onLoginClick() {
         </div>
         <div class="mb-3 flex justify-end items-center">
           <label for="remember-me" class="mr-1 text-sm text-light-100">Remember me</label>
-          <input id="remember-me" v-model="form.data.rememberMe" type="checkbox" class="w-4 h-4 accent-slate-700" />
+          <input
+            id="remember-me"
+            v-model="form.data.rememberMe"
+            type="checkbox"
+            class="w-4 h-4 accent-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-700 focus:border-transparent"
+          />
         </div>
-        <div class="mb-6">
+        <div>
           <button
             type="submit"
             :disabled="form.pending"
@@ -83,11 +88,13 @@ async function onLoginClick() {
         </div>
       </form>
       <div class="text-center">
-        <NuxtLink to="/" class="text-xs">Go home</NuxtLink>
+        <NuxtLink to="/" class="text-xs text-slate-400 transition-colors hover:text-light-100">Go back home</NuxtLink>
       </div>
     </main>
     <footer>
-      <div class="my-12 flex justify-center"></div>
+      <div class="flex justify-center text-xs">
+        <p class="mb-3 text-slate-400">Simple authentification with Nuxt3</p>
+      </div>
     </footer>
   </div>
 </template>
