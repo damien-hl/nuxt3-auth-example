@@ -42,7 +42,7 @@ async function onLoginClick() {
     <header>
       <h1 class="my-24 font-bold text-2xl text-center">Login to your account</h1>
     </header>
-    <main class="mx-auto p-8 max-w-xs w-full flex-1">
+    <main class="mx-auto p-8 max-w-sm w-full">
       <form class="mb-12" @submit.prevent="onLoginClick">
         <p
           v-if="form.error"
@@ -91,10 +91,6 @@ async function onLoginClick() {
         <NuxtLink to="/" class="text-xs text-slate-400 transition-colors hover:text-light-100">Go back home</NuxtLink>
       </div>
     </main>
-    <footer>
-      <div class="flex justify-center text-xs">
-        <p class="mb-3 text-slate-400">Simple authentification with Nuxt3</p>
-      </div>
-    </footer>
+    <BaseFooter class="mt-auto" />
   </div>
 </template>
