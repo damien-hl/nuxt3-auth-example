@@ -41,12 +41,18 @@ async function onLoginClick() {
 
       <label for="remember-me" class="ml-1 text-light-100">Remember me</label>
     </div>
-    <input v-model="form.data.email" type="email" placeholder="Email" required />
-    <input v-model="form.data.password" type="password" placeholder="Password" required />
+    <input v-model="form.data.email" type="email" placeholder="Email" class="bg-white text-slate-950" required />
+    <input
+      v-model="form.data.password"
+      type="password"
+      placeholder="Password"
+      class="bg-white text-slate-950"
+      required
+    />
     <button
       type="submit"
       :disabled="form.pending"
-      class="py-1 px-2 rounded bg-light-100 hover:bg-light-700 transition-colors"
+      class="py-1 px-2 rounded bg-light-100 text-slate-950 hover:bg-light-700 transition-colors"
     >
       Login
     </button>
