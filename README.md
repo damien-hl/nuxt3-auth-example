@@ -6,9 +6,9 @@ Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
 
 ## Features
 
--   ⚡️ Login with email and password
--   📝 Guest, private, admin pages
--   🔥 Active session on page reload
+- ⚡️ Login with email and password
+- 📝 Guest, private, admin pages
+- 🔥 Active session on page reload
 
 ## Setup
 
