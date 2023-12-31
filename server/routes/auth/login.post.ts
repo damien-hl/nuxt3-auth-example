@@ -19,7 +19,7 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  const verified = await verify(password, userWithPassword.password);
+  const verified = await verify(userWithPassword.password, password);
   if (!verified) {
     return createError({
       statusCode: 401,

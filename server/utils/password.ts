@@ -1,9 +1,9 @@
-import bcrypt from "bcryptjs";
+import { Bcrypt } from "oslo/password";
 
 export async function hash(plainPassword: string) {
-  return bcrypt.hash(plainPassword, 10);
+  return await new Bcrypt().hash(plainPassword);
 }
 
-export function verify(plainPassword: string, hash: string) {
-  return bcrypt.compare(plainPassword, hash);
+export async function verify(hash: string, plainPassword: string) {
+  return await new Bcrypt().verify(hash, plainPassword);
 }

@@ -14,7 +14,8 @@
     "*.{json,css,scss,md}": "prettier --write"
   },
   "dependencies": {
-    "bcryptjs": "^2.4.3"
+    "bcryptjs": "^2.4.3",
+    "oslo": "^0.26.2"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.2.0",
