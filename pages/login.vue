@@ -42,8 +42,8 @@ async function onLoginClick() {
     <header>
       <h1 class="my-24 font-bold text-2xl text-center">Login to your account</h1>
     </header>
-    <main class="mx-auto p-8 max-w-sm w-full">
-      <form class="mb-12" @submit.prevent="onLoginClick">
+    <main class="mx-auto max-w-sm w-full">
+      <form class="mb-6 p-12 bg-slate-900 rounded shadow" @submit.prevent="onLoginClick">
         <p
           v-if="form.error"
           class="mb-3 px-3 py-1.5 w-full border rounded border-red-400 text-sm text-center text-red-400"
@@ -51,20 +51,22 @@ async function onLoginClick() {
           {{ form.error }}
         </p>
         <div class="mb-3">
+          <label for="email" class="mb-1 inline-block font-semibold text-sm text-slate-200">Email address</label>
           <input
+            id="email"
             v-model="form.data.email"
             type="email"
-            placeholder="Email"
-            class="px-3 py-1.5 w-full border rounded border-slate-700 bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-slate-700 focus:border-transparent"
+            class="px-3 py-1.5 w-full border rounded border-slate-700 bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-slate-700 focus:border-transparent"
             required
           />
         </div>
         <div class="mb-3">
+          <label for="password" class="mb-1 inline-block font-semibold text-sm text-slate-200">Password</label>
           <input
+            id="password"
             v-model="form.data.password"
             type="password"
-            placeholder="Password"
-            class="px-3 py-1.5 w-full border rounded border-slate-700 bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-slate-700 focus:border-transparent"
+            class="px-3 py-1.5 w-full border rounded border-slate-700 bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-slate-700 focus:border-transparent"
             required
           />
         </div>
@@ -87,8 +89,18 @@ async function onLoginClick() {
           </button>
         </div>
       </form>
-      <div class="text-center">
+      <div class="mb-6 text-center">
         <NuxtLink to="/" class="text-xs text-slate-400 transition-colors hover:text-light-100">Go back home</NuxtLink>
+      </div>
+      <div>
+        <h3 class="mb-1 font-bold">Help</h3>
+        <p class="text-sm text-slate-400">
+          For demo purpose, this application comes with predefined credentials you can use to login:
+        </p>
+        <ul class="text-sm text-slate-400">
+          <li><code class="text-slate-200">admin@gmail.com</code> with <code class="text-slate-200">password</code></li>
+          <li><code class="text-slate-200">user@gmail.com</code> with <code class="text-slate-200">password</code></li>
+        </ul>
       </div>
     </main>
     <BaseFooter class="mt-auto" />
