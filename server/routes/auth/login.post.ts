@@ -5,7 +5,7 @@ export default defineEventHandler(async (event) => {
 
   const { email, password, rememberMe } = body;
   if (!email || !password) {
-    return createError({
+    throw createError({
       statusCode: 400,
       message: "Email address and password are required",
     });
@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
 
   const userWithPassword = await getUserByEmail(email);
   if (!userWithPassword) {
-    return createError({
+    throw createError({
       statusCode: 401,
       message: "Bad credentials",
     });
@@ -21,7 +21,7 @@ export default defineEventHandler(async (event) => {
 
   const verified = await verify(userWithPassword.password, password);
   if (!verified) {
-    return createError({
+    throw createError({
       statusCode: 401,
       message: "Bad credentials",
     });
@@ -38,8 +38,8 @@ export default defineEventHandler(async (event) => {
     sameSite: "strict",
     secure: process.env.NODE_ENV === "production",
     expires: rememberMe
-      ? new Date(Date.now() + config.cookieRememberMeExpires)
-      : new Date(Date.now() + config.cookieExpires),
+      ? new Date(Date.now() + parseInt(config.cookieRememberMeExpires))
+      : new Date(Date.now() + parseInt(config.cookieExpires)),
   });
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

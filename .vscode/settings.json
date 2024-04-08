@@ -4,7 +4,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "tailwindCSS.experimental.configFile": "./tailwind.config.ts",
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },

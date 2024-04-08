@@ -4,9 +4,8 @@ export type CookieSecret = string | Buffer | KeyObject;
 
 export function serialize(obj: object) {
   const value = Buffer.from(JSON.stringify(obj), "utf-8").toString("base64");
-  const length = Buffer.byteLength(value);
 
-  if (length > 4096)
+  if (Buffer.byteLength(value) > 4096)
     throw createError({
       statusCode: 400,
       statusMessage: "Bad request",

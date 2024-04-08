@@ -2,7 +2,7 @@ import type { H3Event } from "h3";
 import { getUserById } from "~~/server/models/user";
 
 export async function getUserFromSession(event: H3Event) {
-  const config = useRuntimeConfig();
+  const config = useRuntimeConfig(event);
 
   const cookie = getCookie(event, config.cookieName);
   if (!cookie) return null;
