@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { FetchError } from "ofetch";
+
 definePageMeta({
   middleware: ["guest-only"],
   layout: false,
@@ -27,10 +29,13 @@ async function onLoginClick() {
 
     const redirect = isAdmin.value ? "/admin" : "/private";
     await navigateTo(redirect);
-  } catch (error: any) {
+  } catch (error) {
     console.error(error);
+    if (!(error instanceof FetchError)) {
+      throw error;
+    }
 
-    if (error.data.message) form.error = error.data.message;
+    form.error = error.data.message;
   } finally {
     form.pending = false;
   }
@@ -58,7 +63,7 @@ async function onLoginClick() {
             type="email"
             class="px-3 py-1.5 w-full border rounded border-slate-700 bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-slate-700 focus:border-transparent"
             required
-          />
+          >
         </div>
         <div class="mb-3">
           <label for="password" class="mb-1 inline-block font-semibold text-sm text-slate-200">Password</label>
@@ -68,7 +73,7 @@ async function onLoginClick() {
             type="password"
             class="px-3 py-1.5 w-full border rounded border-slate-700 bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-slate-700 focus:border-transparent"
             required
-          />
+          >
         </div>
         <div class="mb-3 flex justify-end items-center">
           <label for="remember-me" class="mr-1 text-sm text-light-100">Remember me</label>
@@ -77,7 +82,7 @@ async function onLoginClick() {
             v-model="form.data.rememberMe"
             type="checkbox"
             class="w-4 h-4 accent-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-700 focus:border-transparent"
-          />
+          >
         </div>
         <div>
           <button

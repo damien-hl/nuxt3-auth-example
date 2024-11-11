@@ -1,4 +1,4 @@
-import type { User } from "~~/types";
+import type { User } from "#shared/types";
 
 // Fake users data
 const users: User[] = [

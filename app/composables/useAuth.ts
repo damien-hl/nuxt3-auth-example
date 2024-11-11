@@ -1,14 +1,11 @@
 import { useAuthUser } from "./useAuthUser";
+import type { UserWithoutPassword } from "#shared/types";
 
 export const useAuth = () => {
   const authUser = useAuthUser();
 
-  const setUser = (user: any) => {
+  const setUser = (user: UserWithoutPassword | null) => {
     authUser.value = user;
-  };
-
-  const setCookie = (cookie: any) => {
-    cookie.value = cookie;
   };
 
   const login = async (email: string, password: string, rememberMe: boolean) => {
@@ -42,8 +39,8 @@ export const useAuth = () => {
         });
 
         setUser(data.user);
-      } catch (error) {
-        setCookie(null);
+      } catch {
+        setUser(null);
       }
     }
 

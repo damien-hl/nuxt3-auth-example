@@ -6,7 +6,6 @@ export default defineEventHandler(async (event) => {
     };
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { password: _password, ...userWithoutPassword } = userWithPassword;
 
   return {

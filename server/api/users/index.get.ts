@@ -10,7 +10,6 @@ export default defineEventHandler(async (event) => {
 
   const usersWithPassword = await getUsers();
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const usersWithoutPassword = usersWithPassword.map(({ password, ...user }) => user);
 
   return usersWithoutPassword;

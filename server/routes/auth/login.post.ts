@@ -42,7 +42,6 @@ export default defineEventHandler(async (event) => {
       : new Date(Date.now() + parseInt(config.cookieExpires)),
   });
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { password: _password, ...userWithoutPassword } = userWithPassword;
 
   return {

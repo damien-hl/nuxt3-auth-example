@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { User } from "~/types";
+import type { User } from "#shared/types";
 
 definePageMeta({
   middleware: ["admin-only"],

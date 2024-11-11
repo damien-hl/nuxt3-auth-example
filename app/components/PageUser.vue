@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { UserWithoutPassword } from "~/types";
+import type { UserWithoutPassword } from "#shared/types";
 
 defineProps<{ user: UserWithoutPassword | null }>();
 </script>
