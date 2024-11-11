@@ -17,8 +17,8 @@
     "*.{json,css,scss,md}": "prettier --write"
   },
   "dependencies": {
+    "@node-rs/argon2": "^2.0.0",
     "nuxt": "^3.14.159",
-    "oslo": "^1.2.1",
     "vue": "latest",
     "vue-router": "latest"
   },

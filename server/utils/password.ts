@@ -1,9 +1,14 @@
-import { Bcrypt } from "oslo/password";
+import { hash, verify } from "@node-rs/argon2";
 
-export async function hash(plainPassword: string) {
-  return await new Bcrypt().hash(plainPassword);
+export async function hashPassword(plainPassword: string) {
+  return await hash(plainPassword, {
+		memoryCost: 19456,
+		timeCost: 2,
+		outputLen: 32,
+		parallelism: 1
+  });
 }
 
-export async function verify(hash: string, plainPassword: string) {
-  return await new Bcrypt().verify(hash, plainPassword);
+export async function verifyPassword(hash: string, plainPassword: string) {
+  return await verify(hash, plainPassword);
 }

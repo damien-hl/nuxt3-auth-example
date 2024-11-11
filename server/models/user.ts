@@ -5,13 +5,13 @@ const users: User[] = [
   {
     id: "41dbc5f7-9a4e-42e6-832b-1d3dd8c7c4b6",
     email: "admin@gmail.com",
-    password: "$2y$10$hXPea83sKsVsuf95mtEZZeIYtcFl1vLJ1BXVTEqcgKArf6/5.Zksm",
+    password: "$argon2id$v=19$m=19456,t=2,p=1$d39TKJ2+/qO+d5zjUfpp+A$z/ZBaHVbCfYQT/fSrpz8dc3Kz/rox7oEB7hLGeZzVLU", // password
     roles: ["ADMIN"],
   },
   {
     id: "d0065700-1707-4ad9-811b-8bbed0364318",
     email: "user@gmail.com",
-    password: "$2y$10$hXPea83sKsVsuf95mtEZZeIYtcFl1vLJ1BXVTEqcgKArf6/5.Zksm",
+    password: "$argon2id$v=19$m=19456,t=2,p=1$d39TKJ2+/qO+d5zjUfpp+A$z/ZBaHVbCfYQT/fSrpz8dc3Kz/rox7oEB7hLGeZzVLU", // password
     roles: ["USER"],
   },
 ];
