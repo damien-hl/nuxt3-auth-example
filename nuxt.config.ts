@@ -3,6 +3,23 @@ const ONE_DAY = 60 * 60 * 24 * 1000;
 const ONE_WEEK = ONE_DAY * 7;
 
 export default defineNuxtConfig({
+  app: {
+    head: {
+      bodyAttrs: {
+        class: "bg-slate-950 antialiased text-white"
+      },
+      htmlAttrs: {
+        lang: "en"
+      },
+      meta: [
+        {
+          name: "description",
+          content: "Trying to implement a simple authentication system in Nuxt3"
+        }
+      ],
+      title: "Simple authentication example using Nuxt3",
+    },
+  },
   compatibilityDate: "2024-11-11",
   devtools: { enabled: true },
   future: {
@@ -15,4 +32,7 @@ export default defineNuxtConfig({
     cookieExpires: ONE_DAY.toString(),
     cookieRememberMeExpires: ONE_WEEK.toString(),
   },
+  unocss: {
+    safelist: ["bg-slate-950", "antialiased", "text-white"],
+  }
 });
