@@ -1,13 +1,9 @@
 <script lang="ts" setup>
-import type { User } from "#shared/types";
-
 definePageMeta({
   middleware: ["admin-only"],
 });
 
-const { data: users } = await useAsyncData<User[]>("users", () =>
-  $fetch("/api/users", { headers: useRequestHeaders(["cookie"]) as HeadersInit }),
-);
+const { data: users } = await useFetch("/api/users");
 
 const currentUser = useAuthUser();
 </script>
@@ -26,7 +22,7 @@ const currentUser = useAuthUser();
             <TableHeaderCell>Roles</TableHeaderCell>
           </div>
         </div>
-        <div class="table-row-group">
+        <div v-if="users" class="table-row-group">
           <div v-for="user in users" :key="user.id" class="table-row">
             <TableBodyCell>{{ user.id }}</TableBodyCell>
             <TableBodyCell>{{ user.email }}</TableBodyCell>
