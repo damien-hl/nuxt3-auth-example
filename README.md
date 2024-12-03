@@ -1,14 +1,14 @@
-# Nuxt 3 Minimal Starter
+# Nuxt 3 Auth example
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+This application is a simple example of how to implement a local authentication system using Nuxt.
 
-![Cover](./cover.jpg)
+![Cover](./.github/assets/banner.jpg)
 
 ## Features
 
-- ⚡️ Login with email and password
-- 📝 Guest, private, admin pages
-- 🔥 Active session on page reload
+- 🔐 Login with email and password
+- 🛡️ Guest, private and admin only pages
+- 🔥 Keep user authenticated after page refresh
 
 ## Setup
 
@@ -54,3 +54,9 @@ npm run preview
 ```
 
 Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment) for more information.
+
+## Credits
+
+- [Nuxt](https://nuxt.com/)
+- [UnoCSS](https://unocss.dev/)
+- [The Copenhagen Book](https://thecopenhagenbook.com/)
