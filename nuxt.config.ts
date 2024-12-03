@@ -14,7 +14,7 @@ export default defineNuxtConfig({
       meta: [
         {
           name: "description",
-          content: "Trying to implement a simple authentication system in Nuxt3"
+          content: "Example of a simple authentication system using Nuxt3"
         }
       ],
       title: "Simple authentication example using Nuxt3",
@@ -26,12 +26,6 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
   modules: ["@nuxt/eslint", "@unocss/nuxt"],
-  nitro: {
-    imports: {
-      // temporary fix for https://github.com/unjs/unimport/pull/400
-      dirs: ["./server/utils"]
-    }
-  },
   runtimeConfig: {
     cookieName: "__session",
     cookieSecret: "secret",
