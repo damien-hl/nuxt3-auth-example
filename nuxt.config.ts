@@ -26,6 +26,12 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
   modules: ["@nuxt/eslint", "@unocss/nuxt"],
+  nitro: {
+    imports: {
+      // temporary fix for https://github.com/unjs/unimport/pull/400
+      dirs: ["./server/utils"]
+    }
+  },
   runtimeConfig: {
     cookieName: "__session",
     cookieSecret: "secret",
