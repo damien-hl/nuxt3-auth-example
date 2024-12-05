@@ -6,16 +6,16 @@ export default defineNuxtConfig({
   app: {
     head: {
       bodyAttrs: {
-        class: "bg-slate-950 antialiased text-white"
+        class: "bg-slate-950 antialiased text-white",
       },
       htmlAttrs: {
-        lang: "en"
+        lang: "en",
       },
       meta: [
         {
           name: "description",
-          content: "Example of a simple authentication system using Nuxt3"
-        }
+          content: "Example of a simple authentication system using Nuxt3",
+        },
       ],
       title: "Simple authentication example using Nuxt3",
     },
@@ -34,5 +34,5 @@ export default defineNuxtConfig({
   },
   unocss: {
     safelist: ["bg-slate-950", "antialiased", "text-white"],
-  }
+  },
 });
