@@ -1,4 +1,9 @@
-import type { User } from "#shared/types";
+export interface User {
+  id: string;
+  email: string;
+  password: string;
+  roles: string[];
+}
 
 // Fake users data
 const users: User[] = [
@@ -16,15 +21,15 @@ const users: User[] = [
   },
 ];
 
-export async function getUsers() {
+export async function findAllUsers() {
   return users;
 }
 
-export async function getUserByEmail(email: string) {
+export async function findUserByEmail(email: string) {
   return users.find((user) => user.email === email);
 }
 
-export async function getUserById(id: string) {
+export async function findUserById(id: string) {
   return users.find((user) => user.id === id);
 }
 

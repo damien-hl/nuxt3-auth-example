@@ -1,5 +1,5 @@
-import type { UserWithoutPassword } from "#shared/types";
+import type { User } from "#shared/types";
 
 export const useAuthUser = () => {
-  return useState<UserWithoutPassword | null>("user", () => null);
+  return useState<User | null>("user", () => null);
 };

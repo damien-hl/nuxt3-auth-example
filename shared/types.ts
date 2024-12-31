@@ -1,8 +1,3 @@
-export interface User {
-  id: string;
-  email: string;
-  password: string;
-  roles: string[];
-}
+import type { User as UserWithPassword } from "~~/server/lib/user";
 
-export type UserWithoutPassword = Omit<User, "password">;
+export type User = Omit<UserWithPassword, "password">;

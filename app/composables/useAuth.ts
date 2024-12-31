@@ -1,10 +1,10 @@
+import type { User } from "#shared/types";
 import { useAuthUser } from "./useAuthUser";
-import type { UserWithoutPassword } from "#shared/types";
 
 export const useAuth = () => {
   const authUser = useAuthUser();
 
-  const setUser = (user: UserWithoutPassword | null) => {
+  const setUser = (user: User | null) => {
     authUser.value = user;
   };
 

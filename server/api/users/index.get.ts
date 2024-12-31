@@ -1,4 +1,4 @@
-import { getUsers, isAdmin } from "~~/server/models/user";
+import { findAllUsers, isAdmin } from "../../lib/user";
 
 export default defineEventHandler(async (event) => {
   if (!isAdmin(event.context.user)) {
@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  const usersWithPassword = await getUsers();
+  const usersWithPassword = await findAllUsers();
 
   const usersWithoutPassword = usersWithPassword.map(({ password, ...user }) => user);
 

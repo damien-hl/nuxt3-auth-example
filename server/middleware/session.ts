@@ -1,4 +1,4 @@
-import type { User } from "#shared/types";
+import type { User } from "../lib/user";
 
 export default defineEventHandler(async (event) => {
   const user = await getUserFromSession(event);

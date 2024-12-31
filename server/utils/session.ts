@@ -1,5 +1,6 @@
 import type { H3Event } from "h3";
-import { getUserById } from "~~/server/models/user";
+import { findUserById } from "../lib/user";
+import { deserialize, unsign } from "../lib/cookie";
 
 export async function getUserFromSession(event: H3Event) {
   const config = useRuntimeConfig(event);
@@ -12,5 +13,5 @@ export async function getUserFromSession(event: H3Event) {
 
   const session = deserialize(unsignedSession);
 
-  return getUserById(session.userId);
+  return findUserById(session.userId);
 }

@@ -1,4 +1,6 @@
-import { getUserByEmail } from "~~/server/models/user";
+import { findUserByEmail } from "../../lib/user";
+import { serialize, sign } from "../../lib/cookie";
+import { verifyPassword } from "../../lib/password";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody<{ email: string; password: string; rememberMe: boolean }>(event);
@@ -11,7 +13,7 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  const userWithPassword = await getUserByEmail(email);
+  const userWithPassword = await findUserByEmail(email);
   if (!userWithPassword) {
     throw createError({
       statusCode: 401,

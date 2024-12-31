@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import type { UserWithoutPassword } from "#shared/types";
+import type { User } from "#shared/types";
 
-defineProps<{ user: UserWithoutPassword | null }>();
+defineProps<{ user: User | null }>();
 </script>
 
 <template>
