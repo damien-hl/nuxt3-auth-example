@@ -23,11 +23,11 @@
     "vue-router": "latest"
   },
   "devDependencies": {
-    "@nuxt/eslint": "^0.7.6",
-    "@unocss/nuxt": "^0.65.4",
+    "@nuxt/eslint": "^1.4.1",
+    "@unocss/nuxt": "^66.2.1",
     "eslint": "^9.29.0",
     "husky": "^9.1.7",
-    "lint-staged": "^15.5.2",
+    "lint-staged": "^16.1.2",
     "prettier": "^3.5.3",
     "typescript": "^5.8.3"
   },
