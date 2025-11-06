@@ -18,18 +18,18 @@
   },
   "dependencies": {
     "@node-rs/argon2": "^2.0.2",
-    "nuxt": "^4.0.2",
+    "nuxt": "^4.2.0",
     "vue": "latest",
     "vue-router": "latest"
   },
   "devDependencies": {
-    "@nuxt/eslint": "^1.7.1",
-    "@unocss/nuxt": "^66.3.3",
-    "eslint": "^9.32.0",
+    "@nuxt/eslint": "^1.10.0",
+    "@unocss/nuxt": "^66.5.4",
+    "eslint": "^9.39.1",
     "husky": "^9.1.7",
-    "lint-staged": "^16.1.2",
+    "lint-staged": "^16.2.6",
     "prettier": "^3.6.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.3"
   },
   "overrides": {
     "vite": {
